@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-toolbar>
-      <v-toolbar-side-icon v-on:click="teste"></v-toolbar-side-icon>
+      <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>{{ nomeApp }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -12,7 +12,7 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
@@ -22,6 +22,9 @@ export default {
       nomeApp: "CRM"
     };
   },
-  methods: {}
+  methods: {},
+  mounted(){
+    this.$vuetify.lang.current = 'pt'
+  }
 };
 </script>

@@ -77,7 +77,7 @@ export default {
         data: {
           query: `
 query($first:Int, $offset:Int){
-  cargos(first: $first, offset: $offset) {
+    statusLeads(first: $first, offset: $offset) {
     nodes {
       descricao
       id
@@ -92,9 +92,9 @@ query($first:Int, $offset:Int){
 }`
         }
       }).then(e => {
-        this.items = e.data.data.cargos.nodes;
+        this.items = e.data.data.statusLeads.nodes;
         this.loading = false;
-        this.pagination.totalItems = e.data.data.cargos.totalCount;
+        this.pagination.totalItems = e.data.data.statusLeads.totalCount;
       });
     }
   },
