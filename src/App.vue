@@ -1,30 +1,31 @@
 <template>
-  <div>
-    <v-toolbar>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title>{{ nomeApp }}</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>Link One</v-btn>
-        <v-btn flat>Link Two</v-btn>
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-    <router-view />
-  </div>
+  <v-app>
+    <v-navigation-drawer app></v-navigation-drawer>
+    <v-toolbar app :title="nomeApp"></v-toolbar>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+    <v-footer app></v-footer>
+  </v-app>
 </template>
 <script>
 export default {
   data: () => {
     return {
-      nomeApp: "CRM"
+      nomeApp: "CRM",
+      drawer: false
     };
   },
   methods: {},
-  mounted(){
-    this.$vuetify.lang.current = 'pt'
+  mounted() {
+    this.$vuetify.lang.current = "pt";
   }
 };
 </script>
+<style>
+.drawer {
+  transition: 500ms;
+}
+</style>
