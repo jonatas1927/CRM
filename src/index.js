@@ -5,23 +5,25 @@ const PgManyToManyPlugin = require("@graphile-contrib/pg-many-to-many");
 const app = express();
 var cors = require("cors");
 
-app.use(cors());
+// app.use(cors());
 app.use(
   postgraphile(
-    "postgres://postgres:Servidor.@svdev/agenda",
+    "postgres://postgres:password@localhost/crm",
     ["public", `configuracoes`],
     {
       graphiql: true,
       enhanceGraphiql: true,
       dynamicJson: true,
-      enableCors: true,
+       enableCors: true,
       // graphiqlRoute:,
       graphqlRoute: "/graphql",
       // externalUrlBase:'graphiql',
       subscriptions: true,
+      // disableDefaultMutations: true,
       watchPg: true,
       appendPlugins: [PgSimplifyInflectorPlugin, PgManyToManyPlugin],
-      bodySizeLimit: "5MB"
+      bodySizeLimit: "5MB",
+externalUrlBase: 'http://localhost:8080'
     }
   )
 );

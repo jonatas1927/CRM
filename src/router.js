@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import CargoList from "./views/cargo/CargoList";
+import CargoForm from "./views/cargo/CargoForm";
 import StatusLeadList from "./views/statusLead/StatusLeadList";
 import StatusOportunidadeList from "./views/statusOportunidade/StatusOportunidadeList";
 import ContatosList from "./views/contatos/ContatosList";
@@ -14,6 +15,11 @@ export default new Router({
       path: "/cargo",
       name: "cargo",
       component: CargoList
+    },
+    {
+      path: "/cargoform",
+      name: "cargo form",
+      component: CargoForm
     },
     {
       path: "/statusLead",
