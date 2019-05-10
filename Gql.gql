@@ -1,0 +1,3909 @@
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+type Cargo implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  descricao: String
+}
+
+"""
+A condition to be used against `Cargo` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input CargoCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `descricao` field."""
+  descricao: String
+}
+
+"""An input for mutations affecting `Cargo`"""
+input CargoInput {
+  id: UUID
+  descricao: String
+}
+
+"""
+Represents an update to a `Cargo`. Fields that are set will be updated.
+"""
+input CargoPatch {
+  id: UUID
+  descricao: String
+}
+
+"""A connection to a list of `Cargo` values."""
+type CargosConnection {
+  """A list of `Cargo` objects."""
+  nodes: [Cargo]!
+
+  """
+  A list of edges which contains the `Cargo` and cursor to aid in pagination.
+  """
+  edges: [CargosEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Cargo` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Cargo` edge in the connection."""
+type CargosEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Cargo` at the end of the edge."""
+  node: Cargo
+}
+
+"""Methods to use when ordering `Cargo`."""
+enum CargosOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  DESCRICAO_ASC
+  DESCRICAO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Contato implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  nome: String
+  email: String
+  telefone: String
+  genero: String
+  cnpjcpf: String
+  cargo: String
+  endereco: String
+  redesSociais: JSON
+  status: String
+  classificacao: String
+  obs: String
+  idEmpresa: UUID
+  principal: Boolean
+
+  """Reads a single `Empresa` that is related to this `Contato`."""
+  empresaByIdEmpresa: Empresa
+}
+
+"""
+A condition to be used against `Contato` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ContatoCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `nome` field."""
+  nome: String
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `telefone` field."""
+  telefone: String
+
+  """Checks for equality with the object’s `genero` field."""
+  genero: String
+
+  """Checks for equality with the object’s `cnpjcpf` field."""
+  cnpjcpf: String
+
+  """Checks for equality with the object’s `cargo` field."""
+  cargo: String
+
+  """Checks for equality with the object’s `endereco` field."""
+  endereco: String
+
+  """Checks for equality with the object’s `redesSociais` field."""
+  redesSociais: JSON
+
+  """Checks for equality with the object’s `status` field."""
+  status: String
+
+  """Checks for equality with the object’s `classificacao` field."""
+  classificacao: String
+
+  """Checks for equality with the object’s `obs` field."""
+  obs: String
+
+  """Checks for equality with the object’s `idEmpresa` field."""
+  idEmpresa: UUID
+
+  """Checks for equality with the object’s `principal` field."""
+  principal: Boolean
+}
+
+"""A connection to a list of `Contato` values."""
+type ContatoesConnection {
+  """A list of `Contato` objects."""
+  nodes: [Contato]!
+
+  """
+  A list of edges which contains the `Contato` and cursor to aid in pagination.
+  """
+  edges: [ContatoesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Contato` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Contato` edge in the connection."""
+type ContatoesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Contato` at the end of the edge."""
+  node: Contato
+}
+
+"""Methods to use when ordering `Contato`."""
+enum ContatoesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NOME_ASC
+  NOME_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  TELEFONE_ASC
+  TELEFONE_DESC
+  GENERO_ASC
+  GENERO_DESC
+  CNPJCPF_ASC
+  CNPJCPF_DESC
+  CARGO_ASC
+  CARGO_DESC
+  ENDERECO_ASC
+  ENDERECO_DESC
+  REDES_SOCIAIS_ASC
+  REDES_SOCIAIS_DESC
+  STATUS_ASC
+  STATUS_DESC
+  CLASSIFICACAO_ASC
+  CLASSIFICACAO_DESC
+  OBS_ASC
+  OBS_DESC
+  ID_EMPRESA_ASC
+  ID_EMPRESA_DESC
+  PRINCIPAL_ASC
+  PRINCIPAL_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""An input for mutations affecting `Contato`"""
+input ContatoInput {
+  id: UUID
+  nome: String
+  email: String
+  telefone: String
+  genero: String
+  cnpjcpf: String
+  cargo: String
+  endereco: String
+  redesSociais: JSON
+  status: String
+  classificacao: String
+  obs: String
+  idEmpresa: UUID
+  principal: Boolean
+}
+
+"""
+Represents an update to a `Contato`. Fields that are set will be updated.
+"""
+input ContatoPatch {
+  id: UUID
+  nome: String
+  email: String
+  telefone: String
+  genero: String
+  cnpjcpf: String
+  cargo: String
+  endereco: String
+  redesSociais: JSON
+  status: String
+  classificacao: String
+  obs: String
+  idEmpresa: UUID
+  principal: Boolean
+}
+
+"""All input for the create `Cargo` mutation."""
+input CreateCargoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Cargo` to be created by this mutation."""
+  cargo: CargoInput!
+}
+
+"""The output of our create `Cargo` mutation."""
+type CreateCargoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Cargo` that was created by this mutation."""
+  cargo: Cargo
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Cargo`. May be used by Relay 1."""
+  cargoEdge(
+    """The method to use when ordering `Cargo`."""
+    orderBy: [CargosOrderBy!] = PRIMARY_KEY_ASC
+  ): CargosEdge
+}
+
+"""All input for the create `Contato` mutation."""
+input CreateContatoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Contato` to be created by this mutation."""
+  contato: ContatoInput!
+}
+
+"""The output of our create `Contato` mutation."""
+type CreateContatoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contato` that was created by this mutation."""
+  contato: Contato
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Empresa` that is related to this `Contato`."""
+  empresaByIdEmpresa: Empresa
+
+  """An edge for our `Contato`. May be used by Relay 1."""
+  contatoEdge(
+    """The method to use when ordering `Contato`."""
+    orderBy: [ContatoesOrderBy!] = PRIMARY_KEY_ASC
+  ): ContatoesEdge
+}
+
+"""All input for the create `Empresa` mutation."""
+input CreateEmpresaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Empresa` to be created by this mutation."""
+  empresa: EmpresaInput!
+}
+
+"""The output of our create `Empresa` mutation."""
+type CreateEmpresaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Empresa` that was created by this mutation."""
+  empresa: Empresa
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Empresa`. May be used by Relay 1."""
+  empresaEdge(
+    """The method to use when ordering `Empresa`."""
+    orderBy: [EmpresasOrderBy!] = PRIMARY_KEY_ASC
+  ): EmpresasEdge
+}
+
+"""All input for the create `Lead` mutation."""
+input CreateLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Lead` to be created by this mutation."""
+  lead: LeadInput!
+}
+
+"""The output of our create `Lead` mutation."""
+type CreateLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Lead` that was created by this mutation."""
+  lead: Lead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `StatusLead` that is related to this `Lead`."""
+  statusLeadByIdStatusLead: StatusLead
+
+  """Reads a single `Pessoa` that is related to this `Lead`."""
+  pessoaByIdPessoa: Pessoa
+
+  """An edge for our `Lead`. May be used by Relay 1."""
+  leadEdge(
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): LeadsEdge
+}
+
+"""All input for the create `ManyProdutoHasManyLead` mutation."""
+input CreateManyProdutoHasManyLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `ManyProdutoHasManyLead` to be created by this mutation."""
+  manyProdutoHasManyLead: ManyProdutoHasManyLeadInput!
+}
+
+"""The output of our create `ManyProdutoHasManyLead` mutation."""
+type CreateManyProdutoHasManyLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ManyProdutoHasManyLead` that was created by this mutation."""
+  manyProdutoHasManyLead: ManyProdutoHasManyLead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `Produto` that is related to this `ManyProdutoHasManyLead`.
+  """
+  produtoByIdProduto: Produto
+
+  """
+  Reads a single `Lead` that is related to this `ManyProdutoHasManyLead`.
+  """
+  leadByIdLead: Lead
+
+  """An edge for our `ManyProdutoHasManyLead`. May be used by Relay 1."""
+  manyProdutoHasManyLeadEdge(
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): ManyProdutoHasManyLeadsEdge
+}
+
+"""All input for the create `Oportunidade` mutation."""
+input CreateOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Oportunidade` to be created by this mutation."""
+  oportunidade: OportunidadeInput!
+}
+
+"""The output of our create `Oportunidade` mutation."""
+type CreateOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Oportunidade` that was created by this mutation."""
+  oportunidade: Oportunidade
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Pessoa` that is related to this `Oportunidade`."""
+  pessoaByIdPessoa: Pessoa
+
+  """Reads a single `Empresa` that is related to this `Oportunidade`."""
+  empresaByIdEmpresa: Empresa
+
+  """
+  Reads a single `StatusOportunidade` that is related to this `Oportunidade`.
+  """
+  statusOportunidadeByIdStatusOportunidade: StatusOportunidade
+
+  """Reads a single `Lead` that is related to this `Oportunidade`."""
+  leadByIdLead: Lead
+
+  """An edge for our `Oportunidade`. May be used by Relay 1."""
+  oportunidadeEdge(
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): OportunidadesEdge
+}
+
+"""All input for the create `Pessoa` mutation."""
+input CreatePessoaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Pessoa` to be created by this mutation."""
+  pessoa: PessoaInput!
+}
+
+"""The output of our create `Pessoa` mutation."""
+type CreatePessoaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Pessoa` that was created by this mutation."""
+  pessoa: Pessoa
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Pessoa`. May be used by Relay 1."""
+  pessoaEdge(
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = PRIMARY_KEY_ASC
+  ): PessoasEdge
+}
+
+"""All input for the create `Produto` mutation."""
+input CreateProdutoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Produto` to be created by this mutation."""
+  produto: ProdutoInput!
+}
+
+"""The output of our create `Produto` mutation."""
+type CreateProdutoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Produto` that was created by this mutation."""
+  produto: Produto
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Produto`. May be used by Relay 1."""
+  produtoEdge(
+    """The method to use when ordering `Produto`."""
+    orderBy: [ProdutosOrderBy!] = PRIMARY_KEY_ASC
+  ): ProdutosEdge
+}
+
+"""All input for the create `StatusLead` mutation."""
+input CreateStatusLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `StatusLead` to be created by this mutation."""
+  statusLead: StatusLeadInput!
+}
+
+"""The output of our create `StatusLead` mutation."""
+type CreateStatusLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusLead` that was created by this mutation."""
+  statusLead: StatusLead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusLead`. May be used by Relay 1."""
+  statusLeadEdge(
+    """The method to use when ordering `StatusLead`."""
+    orderBy: [StatusLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusLeadsEdge
+}
+
+"""All input for the create `StatusOportunidade` mutation."""
+input CreateStatusOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `StatusOportunidade` to be created by this mutation."""
+  statusOportunidade: StatusOportunidadeInput!
+}
+
+"""The output of our create `StatusOportunidade` mutation."""
+type CreateStatusOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusOportunidade` that was created by this mutation."""
+  statusOportunidade: StatusOportunidade
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusOportunidade`. May be used by Relay 1."""
+  statusOportunidadeEdge(
+    """The method to use when ordering `StatusOportunidade`."""
+    orderBy: [StatusOportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusOportunidadesEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""The day, does not include a time."""
+scalar Date
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""All input for the `deleteCargoByNodeId` mutation."""
+input DeleteCargoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Cargo` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteCargo` mutation."""
+input DeleteCargoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Cargo` mutation."""
+type DeleteCargoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Cargo` that was deleted by this mutation."""
+  cargo: Cargo
+  deletedCargoNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Cargo`. May be used by Relay 1."""
+  cargoEdge(
+    """The method to use when ordering `Cargo`."""
+    orderBy: [CargosOrderBy!] = PRIMARY_KEY_ASC
+  ): CargosEdge
+}
+
+"""All input for the `deleteContatoByNodeId` mutation."""
+input DeleteContatoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contato` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteContato` mutation."""
+input DeleteContatoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Contato` mutation."""
+type DeleteContatoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contato` that was deleted by this mutation."""
+  contato: Contato
+  deletedContatoNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Empresa` that is related to this `Contato`."""
+  empresaByIdEmpresa: Empresa
+
+  """An edge for our `Contato`. May be used by Relay 1."""
+  contatoEdge(
+    """The method to use when ordering `Contato`."""
+    orderBy: [ContatoesOrderBy!] = PRIMARY_KEY_ASC
+  ): ContatoesEdge
+}
+
+"""All input for the `deleteEmpresaByNodeId` mutation."""
+input DeleteEmpresaByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Empresa` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteEmpresa` mutation."""
+input DeleteEmpresaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Empresa` mutation."""
+type DeleteEmpresaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Empresa` that was deleted by this mutation."""
+  empresa: Empresa
+  deletedEmpresaNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Empresa`. May be used by Relay 1."""
+  empresaEdge(
+    """The method to use when ordering `Empresa`."""
+    orderBy: [EmpresasOrderBy!] = PRIMARY_KEY_ASC
+  ): EmpresasEdge
+}
+
+"""All input for the `deleteLeadByNodeId` mutation."""
+input DeleteLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Lead` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteLead` mutation."""
+input DeleteLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Lead` mutation."""
+type DeleteLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Lead` that was deleted by this mutation."""
+  lead: Lead
+  deletedLeadNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `StatusLead` that is related to this `Lead`."""
+  statusLeadByIdStatusLead: StatusLead
+
+  """Reads a single `Pessoa` that is related to this `Lead`."""
+  pessoaByIdPessoa: Pessoa
+
+  """An edge for our `Lead`. May be used by Relay 1."""
+  leadEdge(
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): LeadsEdge
+}
+
+"""All input for the `deleteManyProdutoHasManyLeadByNodeId` mutation."""
+input DeleteManyProdutoHasManyLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ManyProdutoHasManyLead` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteManyProdutoHasManyLead` mutation."""
+input DeleteManyProdutoHasManyLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  idProduto: UUID!
+  idLead: UUID!
+}
+
+"""The output of our delete `ManyProdutoHasManyLead` mutation."""
+type DeleteManyProdutoHasManyLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ManyProdutoHasManyLead` that was deleted by this mutation."""
+  manyProdutoHasManyLead: ManyProdutoHasManyLead
+  deletedManyProdutoHasManyLeadNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `Produto` that is related to this `ManyProdutoHasManyLead`.
+  """
+  produtoByIdProduto: Produto
+
+  """
+  Reads a single `Lead` that is related to this `ManyProdutoHasManyLead`.
+  """
+  leadByIdLead: Lead
+
+  """An edge for our `ManyProdutoHasManyLead`. May be used by Relay 1."""
+  manyProdutoHasManyLeadEdge(
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): ManyProdutoHasManyLeadsEdge
+}
+
+"""All input for the `deleteOportunidadeByNodeId` mutation."""
+input DeleteOportunidadeByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Oportunidade` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteOportunidade` mutation."""
+input DeleteOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Oportunidade` mutation."""
+type DeleteOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Oportunidade` that was deleted by this mutation."""
+  oportunidade: Oportunidade
+  deletedOportunidadeNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Pessoa` that is related to this `Oportunidade`."""
+  pessoaByIdPessoa: Pessoa
+
+  """Reads a single `Empresa` that is related to this `Oportunidade`."""
+  empresaByIdEmpresa: Empresa
+
+  """
+  Reads a single `StatusOportunidade` that is related to this `Oportunidade`.
+  """
+  statusOportunidadeByIdStatusOportunidade: StatusOportunidade
+
+  """Reads a single `Lead` that is related to this `Oportunidade`."""
+  leadByIdLead: Lead
+
+  """An edge for our `Oportunidade`. May be used by Relay 1."""
+  oportunidadeEdge(
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): OportunidadesEdge
+}
+
+"""All input for the `deletePessoaByNodeId` mutation."""
+input DeletePessoaByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Pessoa` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deletePessoa` mutation."""
+input DeletePessoaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Pessoa` mutation."""
+type DeletePessoaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Pessoa` that was deleted by this mutation."""
+  pessoa: Pessoa
+  deletedPessoaNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Pessoa`. May be used by Relay 1."""
+  pessoaEdge(
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = PRIMARY_KEY_ASC
+  ): PessoasEdge
+}
+
+"""All input for the `deleteProdutoByNodeId` mutation."""
+input DeleteProdutoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Produto` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteProduto` mutation."""
+input DeleteProdutoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Produto` mutation."""
+type DeleteProdutoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Produto` that was deleted by this mutation."""
+  produto: Produto
+  deletedProdutoNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Produto`. May be used by Relay 1."""
+  produtoEdge(
+    """The method to use when ordering `Produto`."""
+    orderBy: [ProdutosOrderBy!] = PRIMARY_KEY_ASC
+  ): ProdutosEdge
+}
+
+"""All input for the `deleteStatusLeadByNodeId` mutation."""
+input DeleteStatusLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `StatusLead` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteStatusLead` mutation."""
+input DeleteStatusLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `StatusLead` mutation."""
+type DeleteStatusLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusLead` that was deleted by this mutation."""
+  statusLead: StatusLead
+  deletedStatusLeadNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusLead`. May be used by Relay 1."""
+  statusLeadEdge(
+    """The method to use when ordering `StatusLead`."""
+    orderBy: [StatusLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusLeadsEdge
+}
+
+"""All input for the `deleteStatusOportunidadeByNodeId` mutation."""
+input DeleteStatusOportunidadeByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `StatusOportunidade` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteStatusOportunidade` mutation."""
+input DeleteStatusOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `StatusOportunidade` mutation."""
+type DeleteStatusOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusOportunidade` that was deleted by this mutation."""
+  statusOportunidade: StatusOportunidade
+  deletedStatusOportunidadeNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusOportunidade`. May be used by Relay 1."""
+  statusOportunidadeEdge(
+    """The method to use when ordering `StatusOportunidade`."""
+    orderBy: [StatusOportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusOportunidadesEdge
+}
+
+type Empresa implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  razaoSocial: String
+  setor: String
+  endereco: String
+  email: String
+  cnpj: String
+  clientes: String
+  telefone: String
+  dataFundacao: Date
+  segmento: String
+
+  """Reads and enables pagination through a set of `Contato`."""
+  contatoesByIdEmpresa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Contato`."""
+    orderBy: [ContatoesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContatoCondition
+  ): ContatoesConnection!
+
+  """Reads and enables pagination through a set of `Oportunidade`."""
+  oportunidadesByIdEmpresa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OportunidadeCondition
+  ): OportunidadesConnection!
+
+  """Reads and enables pagination through a set of `Pessoa`."""
+  pessoasByOportunidadeIdEmpresaAndIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PessoaCondition
+  ): PessoasConnection!
+}
+
+"""
+A condition to be used against `Empresa` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input EmpresaCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `razaoSocial` field."""
+  razaoSocial: String
+
+  """Checks for equality with the object’s `setor` field."""
+  setor: String
+
+  """Checks for equality with the object’s `endereco` field."""
+  endereco: String
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `cnpj` field."""
+  cnpj: String
+
+  """Checks for equality with the object’s `clientes` field."""
+  clientes: String
+
+  """Checks for equality with the object’s `telefone` field."""
+  telefone: String
+
+  """Checks for equality with the object’s `dataFundacao` field."""
+  dataFundacao: Date
+
+  """Checks for equality with the object’s `segmento` field."""
+  segmento: String
+}
+
+"""An input for mutations affecting `Empresa`"""
+input EmpresaInput {
+  id: UUID
+  razaoSocial: String
+  setor: String
+  endereco: String
+  email: String
+  cnpj: String
+  clientes: String
+  telefone: String
+  dataFundacao: Date
+  segmento: String
+}
+
+"""
+Represents an update to a `Empresa`. Fields that are set will be updated.
+"""
+input EmpresaPatch {
+  id: UUID
+  razaoSocial: String
+  setor: String
+  endereco: String
+  email: String
+  cnpj: String
+  clientes: String
+  telefone: String
+  dataFundacao: Date
+  segmento: String
+}
+
+"""A connection to a list of `Empresa` values."""
+type EmpresasConnection {
+  """A list of `Empresa` objects."""
+  nodes: [Empresa]!
+
+  """
+  A list of edges which contains the `Empresa` and cursor to aid in pagination.
+  """
+  edges: [EmpresasEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Empresa` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Empresa` edge in the connection."""
+type EmpresasEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Empresa` at the end of the edge."""
+  node: Empresa
+}
+
+"""Methods to use when ordering `Empresa`."""
+enum EmpresasOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  RAZAO_SOCIAL_ASC
+  RAZAO_SOCIAL_DESC
+  SETOR_ASC
+  SETOR_DESC
+  ENDERECO_ASC
+  ENDERECO_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  CNPJ_ASC
+  CNPJ_DESC
+  CLIENTES_ASC
+  CLIENTES_DESC
+  TELEFONE_ASC
+  TELEFONE_DESC
+  DATA_FUNDACAO_ASC
+  DATA_FUNDACAO_DESC
+  SEGMENTO_ASC
+  SEGMENTO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Lead implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  obs: String
+  idLead: UUID
+  idStatusLead: UUID
+  createdAt: Datetime
+  idPessoa: UUID
+
+  """Reads a single `StatusLead` that is related to this `Lead`."""
+  statusLeadByIdStatusLead: StatusLead
+
+  """Reads a single `Pessoa` that is related to this `Lead`."""
+  pessoaByIdPessoa: Pessoa
+
+  """
+  Reads and enables pagination through a set of `ManyProdutoHasManyLead`.
+  """
+  manyProdutoHasManyLeadsByIdLead(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ManyProdutoHasManyLeadCondition
+  ): ManyProdutoHasManyLeadsConnection!
+
+  """Reads and enables pagination through a set of `Oportunidade`."""
+  oportunidadesByIdLead(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OportunidadeCondition
+  ): OportunidadesConnection!
+
+  """Reads and enables pagination through a set of `Produto`."""
+  produtosByManyProdutoHasManyLeadIdLeadAndIdProduto(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Produto`."""
+    orderBy: [ProdutosOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProdutoCondition
+  ): ProdutosConnection!
+
+  """Reads and enables pagination through a set of `Pessoa`."""
+  pessoasByOportunidadeIdLeadAndIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PessoaCondition
+  ): PessoasConnection!
+}
+
+"""
+A condition to be used against `Lead` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input LeadCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `obs` field."""
+  obs: String
+
+  """Checks for equality with the object’s `idLead` field."""
+  idLead: UUID
+
+  """Checks for equality with the object’s `idStatusLead` field."""
+  idStatusLead: UUID
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `idPessoa` field."""
+  idPessoa: UUID
+}
+
+"""An input for mutations affecting `Lead`"""
+input LeadInput {
+  id: UUID
+  obs: String
+  idLead: UUID
+  idStatusLead: UUID
+  createdAt: Datetime
+  idPessoa: UUID
+}
+
+"""Represents an update to a `Lead`. Fields that are set will be updated."""
+input LeadPatch {
+  id: UUID
+  obs: String
+  idLead: UUID
+  idStatusLead: UUID
+  createdAt: Datetime
+  idPessoa: UUID
+}
+
+"""A connection to a list of `Lead` values."""
+type LeadsConnection {
+  """A list of `Lead` objects."""
+  nodes: [Lead]!
+
+  """
+  A list of edges which contains the `Lead` and cursor to aid in pagination.
+  """
+  edges: [LeadsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Lead` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Lead` edge in the connection."""
+type LeadsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Lead` at the end of the edge."""
+  node: Lead
+}
+
+"""Methods to use when ordering `Lead`."""
+enum LeadsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  OBS_ASC
+  OBS_DESC
+  ID_LEAD_ASC
+  ID_LEAD_DESC
+  ID_STATUS_LEAD_ASC
+  ID_STATUS_LEAD_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  ID_PESSOA_ASC
+  ID_PESSOA_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type ManyProdutoHasManyLead implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  idProduto: UUID!
+  idLead: UUID!
+
+  """
+  Reads a single `Produto` that is related to this `ManyProdutoHasManyLead`.
+  """
+  produtoByIdProduto: Produto
+
+  """
+  Reads a single `Lead` that is related to this `ManyProdutoHasManyLead`.
+  """
+  leadByIdLead: Lead
+}
+
+"""
+A condition to be used against `ManyProdutoHasManyLead` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input ManyProdutoHasManyLeadCondition {
+  """Checks for equality with the object’s `idProduto` field."""
+  idProduto: UUID
+
+  """Checks for equality with the object’s `idLead` field."""
+  idLead: UUID
+}
+
+"""An input for mutations affecting `ManyProdutoHasManyLead`"""
+input ManyProdutoHasManyLeadInput {
+  idProduto: UUID!
+  idLead: UUID!
+}
+
+"""
+Represents an update to a `ManyProdutoHasManyLead`. Fields that are set will be updated.
+"""
+input ManyProdutoHasManyLeadPatch {
+  idProduto: UUID
+  idLead: UUID
+}
+
+"""A connection to a list of `ManyProdutoHasManyLead` values."""
+type ManyProdutoHasManyLeadsConnection {
+  """A list of `ManyProdutoHasManyLead` objects."""
+  nodes: [ManyProdutoHasManyLead]!
+
+  """
+  A list of edges which contains the `ManyProdutoHasManyLead` and cursor to aid in pagination.
+  """
+  edges: [ManyProdutoHasManyLeadsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ManyProdutoHasManyLead` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `ManyProdutoHasManyLead` edge in the connection."""
+type ManyProdutoHasManyLeadsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ManyProdutoHasManyLead` at the end of the edge."""
+  node: ManyProdutoHasManyLead
+}
+
+"""Methods to use when ordering `ManyProdutoHasManyLead`."""
+enum ManyProdutoHasManyLeadsOrderBy {
+  NATURAL
+  ID_PRODUTO_ASC
+  ID_PRODUTO_DESC
+  ID_LEAD_ASC
+  ID_LEAD_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Contato`."""
+  createContato(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateContatoInput!
+  ): CreateContatoPayload
+
+  """Creates a single `Empresa`."""
+  createEmpresa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateEmpresaInput!
+  ): CreateEmpresaPayload
+
+  """Creates a single `Lead`."""
+  createLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateLeadInput!
+  ): CreateLeadPayload
+
+  """Creates a single `ManyProdutoHasManyLead`."""
+  createManyProdutoHasManyLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateManyProdutoHasManyLeadInput!
+  ): CreateManyProdutoHasManyLeadPayload
+
+  """Creates a single `Oportunidade`."""
+  createOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateOportunidadeInput!
+  ): CreateOportunidadePayload
+
+  """Creates a single `Pessoa`."""
+  createPessoa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreatePessoaInput!
+  ): CreatePessoaPayload
+
+  """Creates a single `Produto`."""
+  createProduto(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateProdutoInput!
+  ): CreateProdutoPayload
+
+  """Creates a single `Cargo`."""
+  createCargo(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCargoInput!
+  ): CreateCargoPayload
+
+  """Creates a single `StatusLead`."""
+  createStatusLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateStatusLeadInput!
+  ): CreateStatusLeadPayload
+
+  """Creates a single `StatusOportunidade`."""
+  createStatusOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateStatusOportunidadeInput!
+  ): CreateStatusOportunidadePayload
+
+  """Updates a single `Contato` using its globally unique id and a patch."""
+  updateContatoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContatoByNodeIdInput!
+  ): UpdateContatoPayload
+
+  """Updates a single `Contato` using a unique key and a patch."""
+  updateContato(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContatoInput!
+  ): UpdateContatoPayload
+
+  """Updates a single `Empresa` using its globally unique id and a patch."""
+  updateEmpresaByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateEmpresaByNodeIdInput!
+  ): UpdateEmpresaPayload
+
+  """Updates a single `Empresa` using a unique key and a patch."""
+  updateEmpresa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateEmpresaInput!
+  ): UpdateEmpresaPayload
+
+  """Updates a single `Lead` using its globally unique id and a patch."""
+  updateLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLeadByNodeIdInput!
+  ): UpdateLeadPayload
+
+  """Updates a single `Lead` using a unique key and a patch."""
+  updateLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLeadInput!
+  ): UpdateLeadPayload
+
+  """
+  Updates a single `ManyProdutoHasManyLead` using its globally unique id and a patch.
+  """
+  updateManyProdutoHasManyLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateManyProdutoHasManyLeadByNodeIdInput!
+  ): UpdateManyProdutoHasManyLeadPayload
+
+  """
+  Updates a single `ManyProdutoHasManyLead` using a unique key and a patch.
+  """
+  updateManyProdutoHasManyLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateManyProdutoHasManyLeadInput!
+  ): UpdateManyProdutoHasManyLeadPayload
+
+  """
+  Updates a single `Oportunidade` using its globally unique id and a patch.
+  """
+  updateOportunidadeByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOportunidadeByNodeIdInput!
+  ): UpdateOportunidadePayload
+
+  """Updates a single `Oportunidade` using a unique key and a patch."""
+  updateOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOportunidadeInput!
+  ): UpdateOportunidadePayload
+
+  """Updates a single `Pessoa` using its globally unique id and a patch."""
+  updatePessoaByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdatePessoaByNodeIdInput!
+  ): UpdatePessoaPayload
+
+  """Updates a single `Pessoa` using a unique key and a patch."""
+  updatePessoa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdatePessoaInput!
+  ): UpdatePessoaPayload
+
+  """Updates a single `Produto` using its globally unique id and a patch."""
+  updateProdutoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProdutoByNodeIdInput!
+  ): UpdateProdutoPayload
+
+  """Updates a single `Produto` using a unique key and a patch."""
+  updateProduto(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProdutoInput!
+  ): UpdateProdutoPayload
+
+  """Updates a single `Cargo` using its globally unique id and a patch."""
+  updateCargoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCargoByNodeIdInput!
+  ): UpdateCargoPayload
+
+  """Updates a single `Cargo` using a unique key and a patch."""
+  updateCargo(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCargoInput!
+  ): UpdateCargoPayload
+
+  """
+  Updates a single `StatusLead` using its globally unique id and a patch.
+  """
+  updateStatusLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatusLeadByNodeIdInput!
+  ): UpdateStatusLeadPayload
+
+  """Updates a single `StatusLead` using a unique key and a patch."""
+  updateStatusLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatusLeadInput!
+  ): UpdateStatusLeadPayload
+
+  """
+  Updates a single `StatusOportunidade` using its globally unique id and a patch.
+  """
+  updateStatusOportunidadeByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatusOportunidadeByNodeIdInput!
+  ): UpdateStatusOportunidadePayload
+
+  """Updates a single `StatusOportunidade` using a unique key and a patch."""
+  updateStatusOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatusOportunidadeInput!
+  ): UpdateStatusOportunidadePayload
+
+  """Deletes a single `Contato` using its globally unique id."""
+  deleteContatoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContatoByNodeIdInput!
+  ): DeleteContatoPayload
+
+  """Deletes a single `Contato` using a unique key."""
+  deleteContato(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContatoInput!
+  ): DeleteContatoPayload
+
+  """Deletes a single `Empresa` using its globally unique id."""
+  deleteEmpresaByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteEmpresaByNodeIdInput!
+  ): DeleteEmpresaPayload
+
+  """Deletes a single `Empresa` using a unique key."""
+  deleteEmpresa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteEmpresaInput!
+  ): DeleteEmpresaPayload
+
+  """Deletes a single `Lead` using its globally unique id."""
+  deleteLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLeadByNodeIdInput!
+  ): DeleteLeadPayload
+
+  """Deletes a single `Lead` using a unique key."""
+  deleteLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLeadInput!
+  ): DeleteLeadPayload
+
+  """
+  Deletes a single `ManyProdutoHasManyLead` using its globally unique id.
+  """
+  deleteManyProdutoHasManyLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteManyProdutoHasManyLeadByNodeIdInput!
+  ): DeleteManyProdutoHasManyLeadPayload
+
+  """Deletes a single `ManyProdutoHasManyLead` using a unique key."""
+  deleteManyProdutoHasManyLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteManyProdutoHasManyLeadInput!
+  ): DeleteManyProdutoHasManyLeadPayload
+
+  """Deletes a single `Oportunidade` using its globally unique id."""
+  deleteOportunidadeByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOportunidadeByNodeIdInput!
+  ): DeleteOportunidadePayload
+
+  """Deletes a single `Oportunidade` using a unique key."""
+  deleteOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOportunidadeInput!
+  ): DeleteOportunidadePayload
+
+  """Deletes a single `Pessoa` using its globally unique id."""
+  deletePessoaByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeletePessoaByNodeIdInput!
+  ): DeletePessoaPayload
+
+  """Deletes a single `Pessoa` using a unique key."""
+  deletePessoa(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeletePessoaInput!
+  ): DeletePessoaPayload
+
+  """Deletes a single `Produto` using its globally unique id."""
+  deleteProdutoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProdutoByNodeIdInput!
+  ): DeleteProdutoPayload
+
+  """Deletes a single `Produto` using a unique key."""
+  deleteProduto(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProdutoInput!
+  ): DeleteProdutoPayload
+
+  """Deletes a single `Cargo` using its globally unique id."""
+  deleteCargoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCargoByNodeIdInput!
+  ): DeleteCargoPayload
+
+  """Deletes a single `Cargo` using a unique key."""
+  deleteCargo(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCargoInput!
+  ): DeleteCargoPayload
+
+  """Deletes a single `StatusLead` using its globally unique id."""
+  deleteStatusLeadByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatusLeadByNodeIdInput!
+  ): DeleteStatusLeadPayload
+
+  """Deletes a single `StatusLead` using a unique key."""
+  deleteStatusLead(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatusLeadInput!
+  ): DeleteStatusLeadPayload
+
+  """Deletes a single `StatusOportunidade` using its globally unique id."""
+  deleteStatusOportunidadeByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatusOportunidadeByNodeIdInput!
+  ): DeleteStatusOportunidadePayload
+
+  """Deletes a single `StatusOportunidade` using a unique key."""
+  deleteStatusOportunidade(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatusOportunidadeInput!
+  ): DeleteStatusOportunidadePayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+type Oportunidade implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  idPessoa: UUID
+  importancia: String
+  obs: String
+  valor: BigFloat
+  dataConclusao: Datetime
+  dataInicio: Datetime
+  idEmpresa: UUID
+  idStatusOportunidade: UUID
+  idLead: UUID
+
+  """Reads a single `Pessoa` that is related to this `Oportunidade`."""
+  pessoaByIdPessoa: Pessoa
+
+  """Reads a single `Empresa` that is related to this `Oportunidade`."""
+  empresaByIdEmpresa: Empresa
+
+  """
+  Reads a single `StatusOportunidade` that is related to this `Oportunidade`.
+  """
+  statusOportunidadeByIdStatusOportunidade: StatusOportunidade
+
+  """Reads a single `Lead` that is related to this `Oportunidade`."""
+  leadByIdLead: Lead
+}
+
+"""
+A condition to be used against `Oportunidade` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input OportunidadeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `idPessoa` field."""
+  idPessoa: UUID
+
+  """Checks for equality with the object’s `importancia` field."""
+  importancia: String
+
+  """Checks for equality with the object’s `obs` field."""
+  obs: String
+
+  """Checks for equality with the object’s `valor` field."""
+  valor: BigFloat
+
+  """Checks for equality with the object’s `dataConclusao` field."""
+  dataConclusao: Datetime
+
+  """Checks for equality with the object’s `dataInicio` field."""
+  dataInicio: Datetime
+
+  """Checks for equality with the object’s `idEmpresa` field."""
+  idEmpresa: UUID
+
+  """Checks for equality with the object’s `idStatusOportunidade` field."""
+  idStatusOportunidade: UUID
+
+  """Checks for equality with the object’s `idLead` field."""
+  idLead: UUID
+}
+
+"""An input for mutations affecting `Oportunidade`"""
+input OportunidadeInput {
+  id: UUID
+  idPessoa: UUID
+  importancia: String
+  obs: String
+  valor: BigFloat
+  dataConclusao: Datetime
+  dataInicio: Datetime
+  idEmpresa: UUID
+  idStatusOportunidade: UUID
+  idLead: UUID
+}
+
+"""
+Represents an update to a `Oportunidade`. Fields that are set will be updated.
+"""
+input OportunidadePatch {
+  id: UUID
+  idPessoa: UUID
+  importancia: String
+  obs: String
+  valor: BigFloat
+  dataConclusao: Datetime
+  dataInicio: Datetime
+  idEmpresa: UUID
+  idStatusOportunidade: UUID
+  idLead: UUID
+}
+
+"""A connection to a list of `Oportunidade` values."""
+type OportunidadesConnection {
+  """A list of `Oportunidade` objects."""
+  nodes: [Oportunidade]!
+
+  """
+  A list of edges which contains the `Oportunidade` and cursor to aid in pagination.
+  """
+  edges: [OportunidadesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Oportunidade` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Oportunidade` edge in the connection."""
+type OportunidadesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Oportunidade` at the end of the edge."""
+  node: Oportunidade
+}
+
+"""Methods to use when ordering `Oportunidade`."""
+enum OportunidadesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_PESSOA_ASC
+  ID_PESSOA_DESC
+  IMPORTANCIA_ASC
+  IMPORTANCIA_DESC
+  OBS_ASC
+  OBS_DESC
+  VALOR_ASC
+  VALOR_DESC
+  DATA_CONCLUSAO_ASC
+  DATA_CONCLUSAO_DESC
+  DATA_INICIO_ASC
+  DATA_INICIO_DESC
+  ID_EMPRESA_ASC
+  ID_EMPRESA_DESC
+  ID_STATUS_OPORTUNIDADE_ASC
+  ID_STATUS_OPORTUNIDADE_DESC
+  ID_LEAD_ASC
+  ID_LEAD_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+type Pessoa implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  nome: String
+  email: String
+  celular: String
+  endereco: String
+  cargo: String
+
+  """Reads and enables pagination through a set of `Lead`."""
+  leadsByIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LeadCondition
+  ): LeadsConnection!
+
+  """Reads and enables pagination through a set of `Oportunidade`."""
+  oportunidadesByIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OportunidadeCondition
+  ): OportunidadesConnection!
+
+  """Reads and enables pagination through a set of `StatusLead`."""
+  statusLeadsByLeadIdPessoaAndIdStatusLead(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `StatusLead`."""
+    orderBy: [StatusLeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: StatusLeadCondition
+  ): StatusLeadsConnection!
+
+  """Reads and enables pagination through a set of `Empresa`."""
+  empresasByOportunidadeIdPessoaAndIdEmpresa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Empresa`."""
+    orderBy: [EmpresasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EmpresaCondition
+  ): EmpresasConnection!
+}
+
+"""
+A condition to be used against `Pessoa` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input PessoaCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `nome` field."""
+  nome: String
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `celular` field."""
+  celular: String
+
+  """Checks for equality with the object’s `endereco` field."""
+  endereco: String
+
+  """Checks for equality with the object’s `cargo` field."""
+  cargo: String
+}
+
+"""An input for mutations affecting `Pessoa`"""
+input PessoaInput {
+  id: UUID
+  nome: String
+  email: String
+  celular: String
+  endereco: String
+  cargo: String
+}
+
+"""
+Represents an update to a `Pessoa`. Fields that are set will be updated.
+"""
+input PessoaPatch {
+  id: UUID
+  nome: String
+  email: String
+  celular: String
+  endereco: String
+  cargo: String
+}
+
+"""A connection to a list of `Pessoa` values."""
+type PessoasConnection {
+  """A list of `Pessoa` objects."""
+  nodes: [Pessoa]!
+
+  """
+  A list of edges which contains the `Pessoa` and cursor to aid in pagination.
+  """
+  edges: [PessoasEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Pessoa` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Pessoa` edge in the connection."""
+type PessoasEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Pessoa` at the end of the edge."""
+  node: Pessoa
+}
+
+"""Methods to use when ordering `Pessoa`."""
+enum PessoasOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NOME_ASC
+  NOME_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  CELULAR_ASC
+  CELULAR_DESC
+  ENDERECO_ASC
+  ENDERECO_DESC
+  CARGO_ASC
+  CARGO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Produto implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  nome: String
+  valorBase: BigFloat
+  descricao: String
+
+  """
+  Reads and enables pagination through a set of `ManyProdutoHasManyLead`.
+  """
+  manyProdutoHasManyLeadsByIdProduto(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ManyProdutoHasManyLeadCondition
+  ): ManyProdutoHasManyLeadsConnection!
+
+  """Reads and enables pagination through a set of `Lead`."""
+  leadsByManyProdutoHasManyLeadIdProdutoAndIdLead(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LeadCondition
+  ): LeadsConnection!
+}
+
+"""
+A condition to be used against `Produto` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProdutoCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `nome` field."""
+  nome: String
+
+  """Checks for equality with the object’s `valorBase` field."""
+  valorBase: BigFloat
+
+  """Checks for equality with the object’s `descricao` field."""
+  descricao: String
+}
+
+"""An input for mutations affecting `Produto`"""
+input ProdutoInput {
+  id: UUID
+  nome: String
+  valorBase: BigFloat
+  descricao: String
+}
+
+"""
+Represents an update to a `Produto`. Fields that are set will be updated.
+"""
+input ProdutoPatch {
+  id: UUID
+  nome: String
+  valorBase: BigFloat
+  descricao: String
+}
+
+"""A connection to a list of `Produto` values."""
+type ProdutosConnection {
+  """A list of `Produto` objects."""
+  nodes: [Produto]!
+
+  """
+  A list of edges which contains the `Produto` and cursor to aid in pagination.
+  """
+  edges: [ProdutosEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Produto` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Produto` edge in the connection."""
+type ProdutosEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Produto` at the end of the edge."""
+  node: Produto
+}
+
+"""Methods to use when ordering `Produto`."""
+enum ProdutosOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NOME_ASC
+  NOME_DESC
+  VALOR_BASE_ASC
+  VALOR_BASE_DESC
+  DESCRICAO_ASC
+  DESCRICAO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `Contato`."""
+  contatoes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Contato`."""
+    orderBy: [ContatoesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContatoCondition
+  ): ContatoesConnection
+
+  """Reads and enables pagination through a set of `Empresa`."""
+  empresas(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Empresa`."""
+    orderBy: [EmpresasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EmpresaCondition
+  ): EmpresasConnection
+
+  """Reads and enables pagination through a set of `Lead`."""
+  leads(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LeadCondition
+  ): LeadsConnection
+
+  """
+  Reads and enables pagination through a set of `ManyProdutoHasManyLead`.
+  """
+  manyProdutoHasManyLeads(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ManyProdutoHasManyLeadCondition
+  ): ManyProdutoHasManyLeadsConnection
+
+  """Reads and enables pagination through a set of `Oportunidade`."""
+  oportunidades(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OportunidadeCondition
+  ): OportunidadesConnection
+
+  """Reads and enables pagination through a set of `Pessoa`."""
+  pessoas(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PessoaCondition
+  ): PessoasConnection
+
+  """Reads and enables pagination through a set of `Produto`."""
+  produtos(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Produto`."""
+    orderBy: [ProdutosOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProdutoCondition
+  ): ProdutosConnection
+
+  """Reads and enables pagination through a set of `Cargo`."""
+  cargos(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Cargo`."""
+    orderBy: [CargosOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CargoCondition
+  ): CargosConnection
+
+  """Reads and enables pagination through a set of `StatusLead`."""
+  statusLeads(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `StatusLead`."""
+    orderBy: [StatusLeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: StatusLeadCondition
+  ): StatusLeadsConnection
+
+  """Reads and enables pagination through a set of `StatusOportunidade`."""
+  statusOportunidades(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `StatusOportunidade`."""
+    orderBy: [StatusOportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: StatusOportunidadeCondition
+  ): StatusOportunidadesConnection
+  contato(id: UUID!): Contato
+  empresa(id: UUID!): Empresa
+  lead(id: UUID!): Lead
+  manyProdutoHasManyLead(idProduto: UUID!, idLead: UUID!): ManyProdutoHasManyLead
+  oportunidade(id: UUID!): Oportunidade
+  pessoa(id: UUID!): Pessoa
+  produto(id: UUID!): Produto
+  cargo(id: UUID!): Cargo
+  statusLead(id: UUID!): StatusLead
+  statusOportunidade(id: UUID!): StatusOportunidade
+
+  """Reads a single `Contato` using its globally unique `ID`."""
+  contatoByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Contato`."""
+    nodeId: ID!
+  ): Contato
+
+  """Reads a single `Empresa` using its globally unique `ID`."""
+  empresaByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Empresa`."""
+    nodeId: ID!
+  ): Empresa
+
+  """Reads a single `Lead` using its globally unique `ID`."""
+  leadByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Lead`."""
+    nodeId: ID!
+  ): Lead
+
+  """
+  Reads a single `ManyProdutoHasManyLead` using its globally unique `ID`.
+  """
+  manyProdutoHasManyLeadByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ManyProdutoHasManyLead`.
+    """
+    nodeId: ID!
+  ): ManyProdutoHasManyLead
+
+  """Reads a single `Oportunidade` using its globally unique `ID`."""
+  oportunidadeByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Oportunidade`.
+    """
+    nodeId: ID!
+  ): Oportunidade
+
+  """Reads a single `Pessoa` using its globally unique `ID`."""
+  pessoaByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Pessoa`."""
+    nodeId: ID!
+  ): Pessoa
+
+  """Reads a single `Produto` using its globally unique `ID`."""
+  produtoByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Produto`."""
+    nodeId: ID!
+  ): Produto
+
+  """Reads a single `Cargo` using its globally unique `ID`."""
+  cargoByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Cargo`."""
+    nodeId: ID!
+  ): Cargo
+
+  """Reads a single `StatusLead` using its globally unique `ID`."""
+  statusLeadByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `StatusLead`.
+    """
+    nodeId: ID!
+  ): StatusLead
+
+  """Reads a single `StatusOportunidade` using its globally unique `ID`."""
+  statusOportunidadeByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `StatusOportunidade`.
+    """
+    nodeId: ID!
+  ): StatusOportunidade
+}
+
+type StatusLead implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  descricao: String
+
+  """Reads and enables pagination through a set of `Lead`."""
+  leadsByIdStatusLead(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LeadCondition
+  ): LeadsConnection!
+
+  """Reads and enables pagination through a set of `Pessoa`."""
+  pessoasByLeadIdStatusLeadAndIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PessoaCondition
+  ): PessoasConnection!
+}
+
+"""
+A condition to be used against `StatusLead` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input StatusLeadCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `descricao` field."""
+  descricao: String
+}
+
+"""An input for mutations affecting `StatusLead`"""
+input StatusLeadInput {
+  id: UUID
+  descricao: String
+}
+
+"""
+Represents an update to a `StatusLead`. Fields that are set will be updated.
+"""
+input StatusLeadPatch {
+  id: UUID
+  descricao: String
+}
+
+"""A connection to a list of `StatusLead` values."""
+type StatusLeadsConnection {
+  """A list of `StatusLead` objects."""
+  nodes: [StatusLead]!
+
+  """
+  A list of edges which contains the `StatusLead` and cursor to aid in pagination.
+  """
+  edges: [StatusLeadsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `StatusLead` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `StatusLead` edge in the connection."""
+type StatusLeadsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `StatusLead` at the end of the edge."""
+  node: StatusLead
+}
+
+"""Methods to use when ordering `StatusLead`."""
+enum StatusLeadsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  DESCRICAO_ASC
+  DESCRICAO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type StatusOportunidade implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: UUID!
+  descricao: String
+
+  """Reads and enables pagination through a set of `Oportunidade`."""
+  oportunidadesByIdStatusOportunidade(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OportunidadeCondition
+  ): OportunidadesConnection!
+
+  """Reads and enables pagination through a set of `Pessoa`."""
+  pessoasByOportunidadeIdStatusOportunidadeAndIdPessoa(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PessoaCondition
+  ): PessoasConnection!
+}
+
+"""
+A condition to be used against `StatusOportunidade` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input StatusOportunidadeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `descricao` field."""
+  descricao: String
+}
+
+"""An input for mutations affecting `StatusOportunidade`"""
+input StatusOportunidadeInput {
+  id: UUID
+  descricao: String
+}
+
+"""
+Represents an update to a `StatusOportunidade`. Fields that are set will be updated.
+"""
+input StatusOportunidadePatch {
+  id: UUID
+  descricao: String
+}
+
+"""A connection to a list of `StatusOportunidade` values."""
+type StatusOportunidadesConnection {
+  """A list of `StatusOportunidade` objects."""
+  nodes: [StatusOportunidade]!
+
+  """
+  A list of edges which contains the `StatusOportunidade` and cursor to aid in pagination.
+  """
+  edges: [StatusOportunidadesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `StatusOportunidade` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `StatusOportunidade` edge in the connection."""
+type StatusOportunidadesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `StatusOportunidade` at the end of the edge."""
+  node: StatusOportunidade
+}
+
+"""Methods to use when ordering `StatusOportunidade`."""
+enum StatusOportunidadesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  DESCRICAO_ASC
+  DESCRICAO_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""All input for the `updateCargoByNodeId` mutation."""
+input UpdateCargoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Cargo` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Cargo` being updated.
+  """
+  patch: CargoPatch!
+}
+
+"""All input for the `updateCargo` mutation."""
+input UpdateCargoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Cargo` being updated.
+  """
+  patch: CargoPatch!
+  id: UUID!
+}
+
+"""The output of our update `Cargo` mutation."""
+type UpdateCargoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Cargo` that was updated by this mutation."""
+  cargo: Cargo
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Cargo`. May be used by Relay 1."""
+  cargoEdge(
+    """The method to use when ordering `Cargo`."""
+    orderBy: [CargosOrderBy!] = PRIMARY_KEY_ASC
+  ): CargosEdge
+}
+
+"""All input for the `updateContatoByNodeId` mutation."""
+input UpdateContatoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contato` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Contato` being updated.
+  """
+  patch: ContatoPatch!
+}
+
+"""All input for the `updateContato` mutation."""
+input UpdateContatoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Contato` being updated.
+  """
+  patch: ContatoPatch!
+  id: UUID!
+}
+
+"""The output of our update `Contato` mutation."""
+type UpdateContatoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contato` that was updated by this mutation."""
+  contato: Contato
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Empresa` that is related to this `Contato`."""
+  empresaByIdEmpresa: Empresa
+
+  """An edge for our `Contato`. May be used by Relay 1."""
+  contatoEdge(
+    """The method to use when ordering `Contato`."""
+    orderBy: [ContatoesOrderBy!] = PRIMARY_KEY_ASC
+  ): ContatoesEdge
+}
+
+"""All input for the `updateEmpresaByNodeId` mutation."""
+input UpdateEmpresaByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Empresa` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Empresa` being updated.
+  """
+  patch: EmpresaPatch!
+}
+
+"""All input for the `updateEmpresa` mutation."""
+input UpdateEmpresaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Empresa` being updated.
+  """
+  patch: EmpresaPatch!
+  id: UUID!
+}
+
+"""The output of our update `Empresa` mutation."""
+type UpdateEmpresaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Empresa` that was updated by this mutation."""
+  empresa: Empresa
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Empresa`. May be used by Relay 1."""
+  empresaEdge(
+    """The method to use when ordering `Empresa`."""
+    orderBy: [EmpresasOrderBy!] = PRIMARY_KEY_ASC
+  ): EmpresasEdge
+}
+
+"""All input for the `updateLeadByNodeId` mutation."""
+input UpdateLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Lead` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Lead` being updated.
+  """
+  patch: LeadPatch!
+}
+
+"""All input for the `updateLead` mutation."""
+input UpdateLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Lead` being updated.
+  """
+  patch: LeadPatch!
+  id: UUID!
+}
+
+"""The output of our update `Lead` mutation."""
+type UpdateLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Lead` that was updated by this mutation."""
+  lead: Lead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `StatusLead` that is related to this `Lead`."""
+  statusLeadByIdStatusLead: StatusLead
+
+  """Reads a single `Pessoa` that is related to this `Lead`."""
+  pessoaByIdPessoa: Pessoa
+
+  """An edge for our `Lead`. May be used by Relay 1."""
+  leadEdge(
+    """The method to use when ordering `Lead`."""
+    orderBy: [LeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): LeadsEdge
+}
+
+"""All input for the `updateManyProdutoHasManyLeadByNodeId` mutation."""
+input UpdateManyProdutoHasManyLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ManyProdutoHasManyLead` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `ManyProdutoHasManyLead` being updated.
+  """
+  patch: ManyProdutoHasManyLeadPatch!
+}
+
+"""All input for the `updateManyProdutoHasManyLead` mutation."""
+input UpdateManyProdutoHasManyLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `ManyProdutoHasManyLead` being updated.
+  """
+  patch: ManyProdutoHasManyLeadPatch!
+  idProduto: UUID!
+  idLead: UUID!
+}
+
+"""The output of our update `ManyProdutoHasManyLead` mutation."""
+type UpdateManyProdutoHasManyLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ManyProdutoHasManyLead` that was updated by this mutation."""
+  manyProdutoHasManyLead: ManyProdutoHasManyLead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `Produto` that is related to this `ManyProdutoHasManyLead`.
+  """
+  produtoByIdProduto: Produto
+
+  """
+  Reads a single `Lead` that is related to this `ManyProdutoHasManyLead`.
+  """
+  leadByIdLead: Lead
+
+  """An edge for our `ManyProdutoHasManyLead`. May be used by Relay 1."""
+  manyProdutoHasManyLeadEdge(
+    """The method to use when ordering `ManyProdutoHasManyLead`."""
+    orderBy: [ManyProdutoHasManyLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): ManyProdutoHasManyLeadsEdge
+}
+
+"""All input for the `updateOportunidadeByNodeId` mutation."""
+input UpdateOportunidadeByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Oportunidade` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Oportunidade` being updated.
+  """
+  patch: OportunidadePatch!
+}
+
+"""All input for the `updateOportunidade` mutation."""
+input UpdateOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Oportunidade` being updated.
+  """
+  patch: OportunidadePatch!
+  id: UUID!
+}
+
+"""The output of our update `Oportunidade` mutation."""
+type UpdateOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Oportunidade` that was updated by this mutation."""
+  oportunidade: Oportunidade
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Pessoa` that is related to this `Oportunidade`."""
+  pessoaByIdPessoa: Pessoa
+
+  """Reads a single `Empresa` that is related to this `Oportunidade`."""
+  empresaByIdEmpresa: Empresa
+
+  """
+  Reads a single `StatusOportunidade` that is related to this `Oportunidade`.
+  """
+  statusOportunidadeByIdStatusOportunidade: StatusOportunidade
+
+  """Reads a single `Lead` that is related to this `Oportunidade`."""
+  leadByIdLead: Lead
+
+  """An edge for our `Oportunidade`. May be used by Relay 1."""
+  oportunidadeEdge(
+    """The method to use when ordering `Oportunidade`."""
+    orderBy: [OportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): OportunidadesEdge
+}
+
+"""All input for the `updatePessoaByNodeId` mutation."""
+input UpdatePessoaByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Pessoa` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Pessoa` being updated.
+  """
+  patch: PessoaPatch!
+}
+
+"""All input for the `updatePessoa` mutation."""
+input UpdatePessoaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Pessoa` being updated.
+  """
+  patch: PessoaPatch!
+  id: UUID!
+}
+
+"""The output of our update `Pessoa` mutation."""
+type UpdatePessoaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Pessoa` that was updated by this mutation."""
+  pessoa: Pessoa
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Pessoa`. May be used by Relay 1."""
+  pessoaEdge(
+    """The method to use when ordering `Pessoa`."""
+    orderBy: [PessoasOrderBy!] = PRIMARY_KEY_ASC
+  ): PessoasEdge
+}
+
+"""All input for the `updateProdutoByNodeId` mutation."""
+input UpdateProdutoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Produto` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Produto` being updated.
+  """
+  patch: ProdutoPatch!
+}
+
+"""All input for the `updateProduto` mutation."""
+input UpdateProdutoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Produto` being updated.
+  """
+  patch: ProdutoPatch!
+  id: UUID!
+}
+
+"""The output of our update `Produto` mutation."""
+type UpdateProdutoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Produto` that was updated by this mutation."""
+  produto: Produto
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Produto`. May be used by Relay 1."""
+  produtoEdge(
+    """The method to use when ordering `Produto`."""
+    orderBy: [ProdutosOrderBy!] = PRIMARY_KEY_ASC
+  ): ProdutosEdge
+}
+
+"""All input for the `updateStatusLeadByNodeId` mutation."""
+input UpdateStatusLeadByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `StatusLead` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `StatusLead` being updated.
+  """
+  patch: StatusLeadPatch!
+}
+
+"""All input for the `updateStatusLead` mutation."""
+input UpdateStatusLeadInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `StatusLead` being updated.
+  """
+  patch: StatusLeadPatch!
+  id: UUID!
+}
+
+"""The output of our update `StatusLead` mutation."""
+type UpdateStatusLeadPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusLead` that was updated by this mutation."""
+  statusLead: StatusLead
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusLead`. May be used by Relay 1."""
+  statusLeadEdge(
+    """The method to use when ordering `StatusLead`."""
+    orderBy: [StatusLeadsOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusLeadsEdge
+}
+
+"""All input for the `updateStatusOportunidadeByNodeId` mutation."""
+input UpdateStatusOportunidadeByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `StatusOportunidade` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `StatusOportunidade` being updated.
+  """
+  patch: StatusOportunidadePatch!
+}
+
+"""All input for the `updateStatusOportunidade` mutation."""
+input UpdateStatusOportunidadeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `StatusOportunidade` being updated.
+  """
+  patch: StatusOportunidadePatch!
+  id: UUID!
+}
+
+"""The output of our update `StatusOportunidade` mutation."""
+type UpdateStatusOportunidadePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `StatusOportunidade` that was updated by this mutation."""
+  statusOportunidade: StatusOportunidade
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `StatusOportunidade`. May be used by Relay 1."""
+  statusOportunidadeEdge(
+    """The method to use when ordering `StatusOportunidade`."""
+    orderBy: [StatusOportunidadesOrderBy!] = PRIMARY_KEY_ASC
+  ): StatusOportunidadesEdge
+}
+
+"""
+A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+"""
+scalar UUID

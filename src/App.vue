@@ -1,5 +1,15 @@
 <template>
   <v-app>
+    <v-snackbar
+      v-model="snackbar"
+      :top="true"
+      multi-line="multi-line"
+      :right="true"
+      :timeout="6000"
+    >
+      {{ mensagem }}
+      <v-btn color="pink" flat @click="snackbar = false">Close</v-btn>
+    </v-snackbar>
     <v-navigation-drawer app></v-navigation-drawer>
     <v-toolbar app :title="nomeApp"></v-toolbar>
     <v-content>
