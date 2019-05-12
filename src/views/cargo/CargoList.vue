@@ -69,12 +69,16 @@ export default {
       pagination: {}
     };
   },
+  watch:{ 
+    pagination: function (){
+      this.buscaDados();
+    }
+  },
   methods: {
     toggleAll() {},
     changeSort() {},
     buscaDados() {
       Request({
-        url: "http://localhost:3000/graphql",
         data: {
           query: `
 query($first:Int, $offset:Int){

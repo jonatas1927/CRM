@@ -11,7 +11,7 @@ app.use(
     "postgres://postgres:password@localhost/crm",
     ["public", `configuracoes`],
     {
-      // graphiql: true,
+      graphiql: true,
       exportGqlSchemaPath : './Gql.gql',
       enhanceGraphiql: true,
       dynamicJson: true,
