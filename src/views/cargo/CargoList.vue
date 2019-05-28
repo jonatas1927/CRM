@@ -108,3 +108,6 @@ query($first:Int, $offset:Int){
   }
 };
 </script>
+<style >
+
+</style>
