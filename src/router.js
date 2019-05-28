@@ -7,6 +7,8 @@ import ProdutoForm from "./views/produto/ProdutoForm";
 import StatusLeadList from "./views/statusLead/StatusLeadList";
 import StatusOportunidadeList from "./views/statusOportunidade/StatusOportunidadeList";
 import ContatosList from "./views/contatos/ContatosList";
+import EmpresaList from "./views/empresa/EmpresaList";
+import EmpresaForm from "./views/empresa/EmpresaForm";
 Vue.use(Router);
 
 export default new Router({
@@ -48,6 +50,16 @@ export default new Router({
       path: "/Contatos",
       name: "Contatos",
       component: ContatosList
-    }
+    },
+    {
+      path: "/empresalist",
+      name: "empresalist",
+      component: EmpresaList
+    },
+    {
+      path: "/empresaform",
+      name: "empresaform",
+      component: EmpresaForm
+    },
   ]
 });
