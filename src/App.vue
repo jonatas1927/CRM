@@ -29,9 +29,13 @@ export default {
           title: "Cargo",
           rota: "/cargo"
         },
-  {
+        {
           title: "Produto",
           rota: "/produto"
+        },
+        {
+          title: "Empresa",
+          rota: "/empresa"
         }
 
 
