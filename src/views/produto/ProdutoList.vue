@@ -9,7 +9,7 @@
         hide-details
       ></v-text-field>
       <v-spacer></v-spacer>
-      <router-link to='/cargoform'>
+      <router-link to='/produtoform'>
         <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
           <v-icon>add</v-icon>
         </v-btn>
@@ -36,6 +36,8 @@
           </td>
           <td>{{ props.item.id }}</td>
           <td>{{ props.item.descricao }}</td>
+          <td>{{ props.item.nome }}</td>
+          <td>{{ props.item.valorBase }}</td>
         </tr>
       </template>
     </v-data-table>
@@ -63,7 +65,22 @@ export default {
           align: "left",
           sortable: true,
           value: "descricao"
-        }
+        },
+ {
+          text: "nome",
+          align: "left",
+          sortable: true,
+          value: "nome"
+        },
+
+         {
+          text: "Valor base",
+          align: "left",
+          sortable: true,
+          value: "valorBase"
+        },
+
+
       ],
       items: [],
       pagination: {}
@@ -82,10 +99,12 @@ export default {
         data: {
           query: `
 query($first:Int, $offset:Int){
-  cargos(first: $first, offset: $offset) {
+  produtos(first: $first, offset: $offset) {
     nodes {
       descricao
       id
+      nome
+      valorBase
     }
     totalCount
   }
@@ -97,9 +116,9 @@ query($first:Int, $offset:Int){
 }`
         }
       }).then(e => {
-        this.items = e.data.data.cargos.nodes;
+        this.items = e.data.data.produtos.nodes;
         this.loading = false;
-        this.pagination.totalItems = e.data.data.cargos.totalCount;
+        this.pagination.totalItems = e.data.data.produtos.totalCount;
       });
     }
   },
@@ -108,6 +127,3 @@ query($first:Int, $offset:Int){
   }
 };
 </script>
-<style >
-
-</style>

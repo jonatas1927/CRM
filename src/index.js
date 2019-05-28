@@ -12,10 +12,10 @@ app.use(
     ["public", `configuracoes`],
     {
       graphiql: true,
-      exportGqlSchemaPath : './Gql.gql',
-      enhanceGraphiql: true,
+      // exportGqlSchemaPath: "./Gql.gql",
+      // enhanceGraphiql: true,
       dynamicJson: true,
-       enableCors: true,
+      enableCors: true,
       // graphiqlRoute:,
       graphqlRoute: "/graphql",
       // externalUrlBase:'graphiql',
@@ -24,7 +24,7 @@ app.use(
       watchPg: true,
       appendPlugins: [PgSimplifyInflectorPlugin, PgManyToManyPlugin],
       bodySizeLimit: "5MB",
-externalUrlBase: 'http://localhost:8080'
+      // externalUrlBase: "http://localhost:8080"
     }
   )
 );
