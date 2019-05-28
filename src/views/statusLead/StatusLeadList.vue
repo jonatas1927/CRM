@@ -4,7 +4,7 @@
       <v-text-field
         v-model="pesqDescricao"
         append-icon="search"
-        label="Descricao"
+        label="Descricao"  
         single-line
         hide-details
       ></v-text-field>
