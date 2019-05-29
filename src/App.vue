@@ -1,13 +1,83 @@
 <template>
   <v-app>
     <v-navigation-drawer app>
-      <v-list>
-        <router-link v-for="(item, index) in menu" :key="index" :to="item.rota">
+      
+<template>
+  <v-navigation-drawer
+    stateless
+    value="true"
+  >
+    <v-list>
+      <v-list-tile>
+        <v-list-tile-action>
+          <v-icon>home</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title>Home</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-group
+        prepend-icon="account_circle"
+        value="true"
+      >
+        <template v-slot:activator>
           <v-list-tile>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{nomeApp}}</v-list-tile-title>
           </v-list-tile>
-        </router-link>
-      </v-list>
+        </template>
+        <v-list-group
+          no-action
+          sub-group
+          value="true"
+        >
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-title>Cadastros</v-list-tile-title>
+            </v-list-tile>
+          </template>
+
+          <v-list-tile
+            v-for="(cadastro, i) in menu"
+            :key="i"
+          >
+            <router-link :to="cadastro.rota">
+
+
+
+            <v-list-tile-title v-text="cadastro.title"></v-list-tile-title>
+            <v-list-tile-action>
+            
+            </v-list-tile-action>
+            </router-link>
+
+            
+          </v-list-tile>
+        </v-list-group>
+
+        <v-list-group
+          sub-group
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-title>Actions</v-list-tile-title>
+            </v-list-tile>
+          </template>
+          <v-list-tile
+            v-for="(crud, i) in cruds"
+            :key="i"
+          >
+            <v-list-tile-title v-text="crud[0]"></v-list-tile-title>
+            <v-list-tile-action>
+              <v-icon v-text="crud[1]"></v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-group>
+      </v-list-group>
+    </v-list>
+  </v-navigation-drawer>
+</template>
+
+
     </v-navigation-drawer>
     <v-toolbar app :title="nomeApp"></v-toolbar>
     <v-content>
@@ -37,8 +107,6 @@ export default {
           title: "Empresa",
           rota: "/empresa"
         }
-
-
       ]
     };
   },

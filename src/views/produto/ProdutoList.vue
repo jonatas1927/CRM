@@ -10,7 +10,7 @@
       ></v-text-field>
       <v-spacer></v-spacer>
       <router-link to='/produtoform'>
-        <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
+        <v-btn color="success" fab small dark title="Adicionar" @click="buscaDados()">
           <v-icon>add</v-icon>
         </v-btn>
       </router-link>
