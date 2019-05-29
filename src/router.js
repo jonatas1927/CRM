@@ -9,6 +9,7 @@ import StatusOportunidadeList from "./views/statusOportunidade/StatusOportunidad
 import ContatosList from "./views/contatos/ContatosList";
 import EmpresaList from "./views/empresa/EmpresaList";
 import EmpresaForm from "./views/empresa/EmpresaForm";
+import NotFoundcomponent from './views/NotFoundcomponent'
 Vue.use(Router);
 
 export default new Router({
@@ -52,7 +53,7 @@ export default new Router({
       component: ContatosList
     },
     {
-      path: "/empresalist",
+      path: "/empresa",
       name: "empresalist",
       component: EmpresaList
     },
@@ -61,5 +62,10 @@ export default new Router({
       name: "empresaform",
       component: EmpresaForm
     },
+    {
+      path: "*",
+      name: "404",
+      component: NotFoundcomponent
+    }
   ]
 });

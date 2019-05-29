@@ -1,5 +1,6 @@
 <template>
   <v-card>
+    asdsadsadas
     <v-card-title v-model="selected" title="Oportunidades">
       <v-text-field
         v-model="pesqDescricao"
@@ -45,10 +46,45 @@ export default {
   data: function() {
     return {
       selected: [],
-      pesqDescricao:'',
+      pesqDescricao: "",
       pagination: {},
       headers: [
-          
+        {
+          text: "Importancia",
+          align: "left",
+          sortable: true,
+          value: "importancia"
+        },
+        {
+          text: "Observação",
+          align: "left",
+          sortable: true,
+          value: "obs"
+        },
+        {
+          text: "Valor",
+          align: "left",
+          sortable: true,
+          value: "valor"
+        },
+        {
+          text: "Data Inicio",
+          align: "left",
+          sortable: true,
+          value: "dataInicio"
+        },
+        {
+          text: "data Conclusão",
+          align: "left",
+          sortable: true,
+          value: "dataConclusao"
+        },
+        {
+          text: "Pessoa",
+          align: "left",
+          sortable: true,
+          value: "pessoa"
+        }
       ]
     };
   }
