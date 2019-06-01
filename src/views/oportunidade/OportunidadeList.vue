@@ -10,7 +10,7 @@
         hide-details
       />
       <v-spacer/>
-      <router-link to="/cargoform">
+      <router-link to="/oportunidadeform">
         <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
           <v-icon>add</v-icon>
         </v-btn>
