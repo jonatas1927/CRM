@@ -35,9 +35,6 @@ import { Request } from "../../services/Request";
 export default {
   data() {
     return {
-      snackbar: false,
-      mensagem: "dasdasd",
-      valid: false,
       descricao: "",
       descricaoRules: [v => !!v || "Descrição é Obrigatória"]
     };
@@ -46,11 +43,13 @@ export default {
     salvar: function() {
       Request({
         data: {
-          query: `mutation {
-  createStatusLead(input: {statuslead: {descricao: "${this.descricao}"}}) {
+          query: `
+mutation {
+  createStatusLead(input: {statusLead: {descricao: "${this.descricao}"}}) {
     clientMutationId
   }
-}`,
+}
+`,
           variables: null
         }
       }).then(ret => {

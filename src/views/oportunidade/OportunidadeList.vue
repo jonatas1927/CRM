@@ -1,6 +1,5 @@
 <template>
   <v-card>
-    asdsadsadas
     <v-card-title v-model="selected" title="Oportunidades">
       <v-text-field
         v-model="pesqDescricao"

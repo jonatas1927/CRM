@@ -5,13 +5,14 @@ import CargoForm from "./views/cargo/CargoForm";
 import ProdutoList from "./views/produto/ProdutoList";
 import ProdutoForm from "./views/produto/ProdutoForm";
 import StatusLeadList from "./views/statusLead/StatusLeadList";
+import StatusLeadForm from "./views/statusLead/StatusLeadForm";
 import StatusOportunidadeList from "./views/statusOportunidade/StatusOportunidadeList";
 import ContatosList from "./views/contatos/ContatosList";
 import EmpresaList from "./views/empresa/EmpresaList";
 import EmpresaForm from "./views/empresa/EmpresaForm";
 import OportunidadeList from "./views/oportunidade/OportunidadeList";
 import OportunidadeForm from "./views/oportunidade/OportunidadeForm";
-import NotFoundcomponent from './views/NotFoundcomponent'
+import NotFoundcomponent from "./views/NotFoundcomponent";
 Vue.use(Router);
 
 export default new Router({
@@ -43,6 +44,11 @@ export default new Router({
       path: "/statusLead",
       name: "statusLead",
       component: StatusLeadList
+    },
+    {
+      path: "/statusLeadForm",
+      name: "statusLead",
+      component: StatusLeadForm
     },
     {
       path: "/statusOportunidade",

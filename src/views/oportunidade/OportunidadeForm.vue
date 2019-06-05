@@ -119,33 +119,6 @@ export default {
     };
   },
   methods: {
-    salvar: function() {
-      Request({
-        data: {
-          query: `mutation {
-  createProduto(input: {produto: {
-    descricao: "${this.descricao}"
-    nome: "${this.nome}"
-    valorBase: "${this.valorBase}"
-
-    
-    }}) {
-    clientMutationId
-  }
-}`,
-          variables: null
-        }
-      }).then(ret => {
-        if (ret.status == 200) {
-          this.mensagem = "Registro Salvo com Sucesso";
-          this.snackbar = true;
-          this.$router.push({ name: "produto" });
-        } else {
-          this.mensagem = "Houve um erro ao salvar o registro";
-          this.snackbar = true;
-        }
-      });
-    },
     buscarPessoas: function() {
       const quer = `
       {

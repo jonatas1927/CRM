@@ -106,6 +106,22 @@ export default {
         {
           title: "Empresa",
           rota: "/empresa"
+        },
+        {
+          title: "Status Lead",
+          rota: "/statusLead"
+        },
+        {
+          title: "Status Oportunidade",
+          rota: "/statusOportunidade"
+        },
+        {
+          title: "Contatos",
+          rota: "/Contatos"
+        },
+        {
+          title: "Oportunidades",
+          rota: "/Oportunidade"
         }
       ]
     };
