@@ -5,10 +5,66 @@
         <v-layout>
           <v-flex xs12 md12>
             <v-text-field
-              v-model="descricao"
-              :rules="descricaoRules"
+              v-model="form.razaosocial"
+              :rules="razaosocialRules"
               :counter="1000"
-              label="Descrição"
+              label="Razão Social"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.setor"
+              :rules="setorRules"
+              :counter="1000"
+              label="Setor"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.endereco"
+              :rules="enderecoRules"
+              :counter="1000"
+              label="Endereço"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.email"
+              :rules="emailRules"
+              :counter="1000"
+              label="E-mail"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.cnpj"
+              :rules="cnpjRules"
+              :counter="1000"
+              label="CNPJ"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.clientes"
+              :rules="clientesRules"
+              :counter="1000"
+              label="Clientes"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.telefone"
+              :rules="telefoneRules"
+              :counter="1000"
+              label="Telefone"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.fundacao"
+              :rules="fundacaoRules"
+              :counter="1000"
+              label="Data Fundação"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="form.segmento"
+              :rules="segmentoRules"
+              :counter="1000"
+              label="Segmento"
               required
             ></v-text-field>
           </v-flex>
@@ -35,11 +91,18 @@ import { Request } from "../../services/Request";
 export default {
   data() {
     return {
-      snackbar: false,
-      mensagem: "dasdasd",
-      valid: false,
-      descricao: "",
-      descricaoRules: [v => !!v || "Descrição é Obrigatória"]
+      form: {
+        razaosocial: "",
+        setor:  "",
+        endereco: "",
+        email: "",
+        cnpj: "",
+        clientes: "",
+        telefone: "",
+        fundacao: "",
+        segmento: ""
+      },
+      valid: false
     };
   },
   methods: {
@@ -47,10 +110,10 @@ export default {
       Request({
         data: {
           query: `mutation {
-  createEmpresa(input: {empresa: {descricao: "${this.descricao}"}}) {
-    clientMutationId
-  }
-}`,
+             createEmpresa(input: {empresa: {razaoSocial: "${this.form.razaosocial}", setor: "${this.form.setor}", endereco: "${this.form.endereco}", email: "${this.form.email}", cnpj: "${this.form.cnpj}", telefone: "${this.form.telefone}", clientes: "${this.form.clientes}", dataFundacao: "${this.form.fundacao}", segmento: "${this.form.segmento}"}}) {
+               clientMutationId
+                  }
+               }`,
           variables: null
         }
       }).then(ret => {

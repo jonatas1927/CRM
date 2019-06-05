@@ -35,7 +35,15 @@
             <v-checkbox :input-value="props.selected" primary hide-details></v-checkbox>
           </td>
           <td>{{ props.item.id }}</td>
-          <td>{{ props.item.razaosocial }}</td>
+          <td>{{ props.item.razaoSocial }}</td>
+          <td>{{ props.item.setor }}</td>
+          <td>{{ props.item.endereco }}</td>
+          <td>{{ props.item.email }}</td>
+          <td>{{ props.item.cnpj }}</td>
+          <td>{{ props.item.clientes }}</td>
+          <td>{{ props.item.telefone }}</td>
+          <td>{{ props.item.dataFundacao }}</td>
+          <td>{{ props.item.segmento }}</td>
         </tr>
       </template>
     </v-data-table>
@@ -59,10 +67,58 @@ export default {
           hidden: true
         },
         {
-          text: "Descrição",
+          text: "Razão Social",
           align: "left",
           sortable: true,
-          value: "descricao"
+          value: "razaoSocial"
+        },
+        {
+          text: "Setor",
+          align: "left",
+          sortable: true,
+          value: "setor"
+        },
+        {
+          text: "Endereço",
+          align: "left",
+          sortable: true,
+          value: "endereco"
+        },
+        {
+          text: "E-mail",
+          align: "left",
+          sortable: true,
+          value: "email"
+        },
+        {
+          text: "CNPJ",
+          align: "left",
+          sortable: true,
+          value: "cnpj"
+        },
+        {
+          text: "Clientes",
+          align: "left",
+          sortable: true,
+          value: "clientes"
+        },
+        {
+          text: "Telefone",
+          align: "left",
+          sortable: true,
+          value: "telefone"
+        },
+        {
+          text: "Data Fundação",
+          align: "left",
+          sortable: true,
+          value: "dataFundacao"
+        },
+        {
+          text: "Segmento",
+          align: "left",
+          sortable: true,
+          value: "segmento"
         }
       ],
       items: [],
@@ -81,11 +137,19 @@ export default {
       Request({
         data: {
           query: `
-query($first:Int, $offset:Int){
+query ($first: Int, $offset: Int) {
   empresas(first: $first, offset: $offset) {
     nodes {
-      descricao
       id
+      razaoSocial
+      setor
+      endereco
+      email
+      cnpj
+      clientes
+      telefone
+      dataFundacao
+      segmento
     }
     totalCount
   }
