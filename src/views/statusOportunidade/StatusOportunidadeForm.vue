@@ -47,7 +47,7 @@ export default {
       Request({
         data: {
           query: `mutation {
-  createStatusOportunidade(input: {statusoportunidade: {descricao: "${this.descricao}"}}) {
+  createStatusOportunidade(input: {statusOportunidade: {descricao: "${this.descricao}"}}) {
     clientMutationId
   }
 }`,

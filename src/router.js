@@ -7,6 +7,7 @@ import ProdutoForm from "./views/produto/ProdutoForm";
 import StatusLeadList from "./views/statusLead/StatusLeadList";
 import StatusLeadForm from "./views/statusLead/StatusLeadForm";
 import StatusOportunidadeList from "./views/statusOportunidade/StatusOportunidadeList";
+import StatusOportunidadeForm from "./views/statusOportunidade/StatusOportunidadeForm";
 import ContatosList from "./views/contatos/ContatosList";
 import EmpresaList from "./views/empresa/EmpresaList";
 import EmpresaForm from "./views/empresa/EmpresaForm";
@@ -54,6 +55,11 @@ export default new Router({
       path: "/statusOportunidade",
       name: "statusOportunidade",
       component: StatusOportunidadeList
+    },
+    {
+      path: "/StatusOportunidadeForm",
+      name: "StatusOportunidadeForm",
+      component: StatusOportunidadeForm
     },
     {
       path: "/Contatos",
