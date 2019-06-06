@@ -13,6 +13,8 @@ import EmpresaList from "./views/empresa/EmpresaList";
 import EmpresaForm from "./views/empresa/EmpresaForm";
 import OportunidadeList from "./views/oportunidade/OportunidadeList";
 import OportunidadeForm from "./views/oportunidade/OportunidadeForm";
+import LeadList from "./views/lead/LeadList";
+import LeadForm from "./views/lead/LeadForm";
 import NotFoundcomponent from "./views/NotFoundcomponent";
 Vue.use(Router);
 
@@ -85,6 +87,16 @@ export default new Router({
       path: "/Oportunidadeform",
       name: "Oportunidadeform",
       component: OportunidadeForm
+    },
+    {
+      path: "/Lead",
+      name: "Leadlist",
+      component: LeadList
+    },
+    {
+      path: "/Leadform",
+      name: "Leadform",
+      component: LeadForm
     },
     {
       path: "*",

@@ -122,6 +122,10 @@ export default {
         {
           title: "Oportunidades",
           rota: "/Oportunidade"
+        },
+          {
+          title: "Lead",
+          rota: "/Lead"
         }
       ]
     };
