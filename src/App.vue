@@ -107,6 +107,10 @@ export default {
           title: "Empresa",
           rota: "/empresa"
         },
+		        {
+          title: "Pessoa",
+          rota: "/pessoaslist"
+        },
         {
           title: "Status Lead",
           rota: "/statusLead"

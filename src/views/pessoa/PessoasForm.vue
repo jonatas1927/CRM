@@ -7,8 +7,8 @@ cargo
 <-->
 
 <template>
-<div>
-     <v-toolbar color="blue" light>
+  <div>
+    <v-toolbar color="blue" light>
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>Pessoas</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -16,12 +16,8 @@ cargo
         <v-icon>search</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-    ></v-form>
-    
+    <v-form ref="form" v-model="valid" lazy-validation></v-form>
+
     <!-- verificar esses campos -->
     <v-text-field
       v-model="nome"
@@ -31,7 +27,7 @@ cargo
       data-vv-nome="nome"
       required
     ></v-text-field>
-    
+
     <v-text-field
       v-model="email"
       v-validate="'required|email'"
@@ -59,6 +55,5 @@ cargo
       data-vv-name="cargo"
       required
     ></v-select>
-
-</div>    
+  </div>
 </template>
