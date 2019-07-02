@@ -8,7 +8,7 @@ var cors = require("cors");
 // app.use(cors());
 app.use(
   postgraphile(
-    "postgres://postgres:password@localhost/crm",
+    "postgres://postgres:956233@localhost/crm",
     ["public", `configuracoes`],
     {
       graphiql: true,

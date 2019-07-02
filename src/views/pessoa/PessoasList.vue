@@ -1,5 +1,20 @@
 <template>
   <v-card>
+    <v-card-title>
+      <v-text-field
+        v-model="pesqRazaoSocial"
+        append-icon="search"
+        label="Pessoas"
+        single-line
+        hide-details
+      ></v-text-field>
+      <v-spacer></v-spacer>
+      <router-link to="/PessoasForm">
+        <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
+          <v-icon>add</v-icon>
+        </v-btn>
+      </router-link>
+    </v-card-title>
     <v-data-table
       no-data-text="Nenhum dado encontrado"
       rows-per-page-text="Linhas por Página"
@@ -25,7 +40,7 @@
           <td>{{ props.item.endereco }}</td>
         </tr>
       </template>
-          </v-data-table>
+    </v-data-table>
   </v-card>
 </template>
 
@@ -51,19 +66,19 @@ export default {
           sortable: true,
           value: "nome"
         },
-                {
+        {
           text: "E-mail",
           align: "left",
           sortable: true,
           value: "email"
         },
-                        {
+        {
           text: "Celular",
           align: "left",
           sortable: true,
           value: "celular"
         },
-                                {
+        {
           text: "Endereço",
           align: "left",
           sortable: true,
