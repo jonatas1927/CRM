@@ -17,6 +17,7 @@ import LeadList from "./views/Lead/LeadList";
 import LeadForm from "./views/Lead/LeadForm";
 import PessoasList from "./views/pessoa/PessoasList";
 import NotFoundcomponent from "./views/NotFoundcomponent";
+import PessoasForm from "./views/pessoa/PessoasForm";
 Vue.use(Router);
 
 export default new Router({
@@ -32,6 +33,11 @@ export default new Router({
       path: "/cargoform",
       name: "cargo form",
       component: CargoForm
+    },
+    {
+      path: "/PessoasForm",
+      name: "pessoas form",
+      component: PessoasForm
     },
     {
       path: "/produto",
@@ -51,7 +57,7 @@ export default new Router({
     },
     {
       path: "/statusLeadForm",
-      name: "statusLead",
+      name: "statusLeadForm",
       component: StatusLeadForm
     },
     {
