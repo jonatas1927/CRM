@@ -9,10 +9,11 @@
         hide-details
       ></v-text-field>
       <v-spacer></v-spacer>
-
-      <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
-        <v-icon>add</v-icon>
-      </v-btn>
+      <router-link to="/contatosForm">
+        <v-btn color="primary" fab small dark title="Adicionar" @click="buscaDados()">
+          <v-icon>add</v-icon>
+        </v-btn>
+      </router-link>
     </v-card-title>
 
     <v-data-table
