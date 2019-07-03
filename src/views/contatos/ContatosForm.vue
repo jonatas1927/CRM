@@ -144,7 +144,7 @@ export default {
         if (ret.status == 200) {
           this.mensagem = "Registro Salvo com Sucesso";
           this.snackbar = true;
-          this.$router.push({ name: "contatos" });
+          this.$router.push({ name: "contatosList" });
         } else {
           this.mensagem = "Houve um erro ao salvar o registro";
           this.snackbar = true;
