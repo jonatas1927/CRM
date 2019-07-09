@@ -143,15 +143,15 @@ export default {
 let query = `
 mutation{
   createOportunidade(input:{oportunidade:{
-    idPessoa:${this.form.pessoa_id},
+    idPessoa:"${this.form.pessoa_id}",
     importancia:${this.form.importancia},
-    obs:${this.form.obs},
+    obs:"${this.form.obs}",
     valor:${this.form.valor},
-    dataConclusao:${this.form.dataConclusao.toLocaleSting()},
+    dataConclusao:${this.form.dataConclusao ? this.form.dataConclusao.toLocaleSting() : null},
     dataInicio:${this.form.dataInicio.toLocaleString()},
-    idEmpresa:${this.form.id_empresa},
-    idStatusOportunidade:${this.form.id_statusOportunidade},
-    idLead:${this.form.id_lead}
+    idEmpresa:"${this.form.id_empresa}",
+    idStatusOportunidade:"${this.form.id_statusOportunidade}",
+    idLead:"${this.form.id_lead}"
   }}){
     oportunidade{
       nodeId

@@ -59,10 +59,10 @@ export default {
           hidden: true
         },
         {
-          text: "Descrição",
+          text: "Observacao",
           align: "left",
           sortable: true,
-          value: "descricao"
+          value: "obs"
         }
       ],
       items: [],
